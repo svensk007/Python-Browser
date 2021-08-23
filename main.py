@@ -7,19 +7,20 @@ try:
 except:
  print("Installing Packages...\nPlease Wait...")
  os.system("pip install PyQt5")
- os.system("pip install PyQt5WebEngine")
+ os.system("pip install PyQtWidgets")
+ os.system("pip install PyQtWebEngine")
  print("Finished")
 
-print("ERR LOG")
+print("ERR LOG\n")
 
 class MainWindow(QMainWindow):
   def __init__(self):
-    super(MainWindow, self).__init__()
+    super(QMainWindow, self).__init__()
     self.browser = QWebEngineView()
     self.browser.setUrl(QUrl('http://google.com'))
     self.setCentralWidget(self.browser)
     self.showMaximized()
-    # navbar
+    # NAVBAR #
     navbar = QToolBar()
     self.addToolBar(navbar)
     back_btn = QAction('Back', self)
@@ -49,5 +50,5 @@ class MainWindow(QMainWindow):
 
 app = QApplication(sys.argv)
 QApplication.setApplicationName('Browser')
-window = MainWindow()
+window = QMainWindow()
 app.exec_()
